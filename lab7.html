@@ -26,6 +26,12 @@
         .green {
             background-color: green;
         }
+        button {
+            margin-top: 20px;
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
+        }
     </style>
     <script>
         function addBlocks() {
@@ -72,17 +78,18 @@
         }
 
         function createCircles() {
-            const count = document.getElementById('count').value || 5;
-            const circlesDiv = document.getElementById('circles');
+            let count = document.getElementById('count').value;
+            let circlesDiv = document.getElementById('circles');
             circlesDiv.innerHTML = '';
             for (let i = count; i > 0; i--) {
                 let circle = document.createElement('div');
                 circle.classList.add('circle');
                 circle.textContent = i;
-                if (i % 2 === 0) {
-                circle.classList.add('green');
-                } else {
-                circle.classList.add('red');
+                if (i % 2 == 0) {
+                    circle.classList.add('green');
+                } 
+                else {
+                    circle.classList.add('red');
                 }
                 circlesDiv.appendChild(circle);
             }
