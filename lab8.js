@@ -4,7 +4,7 @@ function showDate(){
     let out_2 = document.getElementById('current-date3');
     let out_3 = document.getElementById('current-date4');
     let out_4 = document.getElementById('current-date5');
-    let out_5 = document.getElementById('current-date6')
+    let out_5 = document.getElementById('current-date6');
     let Today = new Date ();
     out.innerHTML = "Дата и время для русской локали: " + Today.toLocaleString('ru-RU');
     out_1.innerHTML = "Дата и время для американской локали: " + Today.toLocaleString('en-US');
@@ -12,4 +12,21 @@ function showDate(){
     out_3.innerHTML = "Дата и время для японской локали: " + Today.toLocaleString('ja-JP');
     out_4.innerHTML = "Дата и время для китайской локали: " + Today.toLocaleString('zh-CN');
     out_5.innerHTML = "Дата и время для арабской (египет) локали:" + Today.toLocaleDateString('ar-ER');
+}
+
+function showDaysCount(){
+    let today = new Date();
+    let inputDate = document.querySelector('input[type=date]');
+    let birthday = new Date(inputDate.value);
+    let daysCount = (today - birthday)/1000/60/60/24;
+    daysCount = Math.floor(daysCount);
+    let days = document.getElementById('days').innerHTML = 'Количество дней с даты рождения: ' + daysCount;
+}
+
+function ClearAll(){
+    let inputDate = document.querySelector('input[type=date]');
+    let day = document.getElementById('days');
+
+    inputDate.value = '';
+    day.innerHTML = '';
 }
