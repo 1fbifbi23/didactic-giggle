@@ -32,6 +32,28 @@
             height: 50px;
             font-size: 16px;
         }
+
+        table {
+            width: 200px;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-color: black;
+        }
+        table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        table th {
+            padding: 8px;
+            text-align: center;
+            background-color: black;
+            border: 1px solid black;
+        }
+        main{
+            position: relative;
+        }
     </style>
     <script>
         function addBlocks() {
@@ -95,6 +117,42 @@
             }
         }
 
+        function MultiplicationTable() {
+            let lastDigits = 14;
+            let number = lastDigits + 10;
+
+            let table = document.getElementById('multiplication-table');
+
+            for (let i = 13; i <= 33; i++) {
+                let row = document.createElement('tr');
+                let multiplication = i * number;
+
+                let cell1 = document.createElement('td');
+                cell1.innerText = i;
+
+                let cell2 = document.createElement('td');
+                cell2.innerText = 'x';
+
+                let cell3 = document.createElement('td');
+                cell3.innerText = number;
+
+                let cell4 = document.createElement('td');
+                cell4.innerText = '=';
+
+                let cell5 = document.createElement('td');
+                cell5.innerText = multiplication;
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                row.appendChild(cell5);
+                table.appendChild(row);
+            }
+
+
+        }
+
     </script>
 
 </head>
@@ -119,6 +177,9 @@
         <input type="number" id="count" value="5" placeholder="Введите число кругов">
         <button onclick="createCircles()">Красное/зелёное</button>
         <div id="circles"></div>
+
+        <button onclick="MultiplicationTable()">Таблица умножения</button>
+        <table id="multiplication-table"></table>
 
     </main>
 
