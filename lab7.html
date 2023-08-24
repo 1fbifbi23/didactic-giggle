@@ -153,6 +153,59 @@
 
         }
 
+
+        function showStockTable() {
+
+            let stockPrices = [5690.50, 5598.50, 5545.00, 5473.00, 5547.00, 5663.00, 5965.50, 5906.50, 5845.00];
+            let stockDates = ['11.08.2023', '14.08.2023', '15.08.2023', '16.08.2023', '17.08.2023', '18.08.2023', '21.08.2023', '22.08.2023', '23.08.2023'];
+
+            let table = document.getElementById('stock-table');
+            let averagePrice = document.getElementById('average-price');
+            let minPrice = document.getElementById('minprice');
+            let maxPrice = document.getElementById('maxprice');
+
+            let row = table.insertRow();
+            let dateHeader = row.insertCell();
+            let priceHeader = row.insertCell();
+            let differenceHeader = row.insertCell();
+
+            dateHeader.innerText = 'Дата';
+            priceHeader.innerText = 'Цена акций в руб.';
+            differenceHeader.innerText = 'Разница';
+
+            let previousPrice = null;
+
+            for (let i = 0; i < stockPrices.length; i++) {
+                let row = table.insertRow();
+                let dateCell = row.insertCell();
+                let priceCell = row.insertCell();
+                let differenceCell = row.insertCell();
+
+                dateCell.innerText = stockDates[i];
+                priceCell.innerText = stockPrices[i].toFixed(2);
+
+                if (previousPrice !== null) {
+                    let difference = stockPrices[i] - previousPrice;
+                    differenceCell.innerText = difference.toFixed(2);
+                
+                }
+                else {
+                    differenceCell.innerText = '-';
+                }
+                previousPrice = stockPrices[i];
+            }
+            let total = stockPrices.reduce((sum, price) => sum + price, 0);
+            let average = total / stockPrices.length;
+            averagePrice.innerText = 'Среднее значение стоимости акции: ' + average.toFixed(2) + ' руб.';
+
+            let minPrice1 = Math.min(...stockPrices); 
+            let maxPrice1 = Math.max(...stockPrices); 
+            minPrice.innerText = "Минимальное значение стоимости акции: " + minPrice1.toFixed(2)  + ' руб.';
+            maxPrice.innerText = "Максимальное значение стоимости акции: " + maxPrice1.toFixed(2)  + ' руб.';
+        
+
+        }
+
     </script>
 
 </head>
@@ -180,6 +233,12 @@
 
         <button onclick="MultiplicationTable()">Таблица умножения</button>
         <table id="multiplication-table"></table>
+
+        <button onclick="showStockTable()">Курс акций "Магнит"</button>
+        <table id="stock-table"></table>
+        <p id="average-price"></p>
+        <p id="minprice"></p>
+        <p id="maxprice"></p>
 
     </main>
 
