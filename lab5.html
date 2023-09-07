@@ -20,6 +20,38 @@
             width: 300px;
             height: 40px;
             text-align: center;
+            margin-top: 10px;
+        }
+        .storage {
+            margin-top: 30px;
+            padding: 5px;
+            border: 2px solid;
+            width: 400px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        #Sbb{
+            margin-top: 10px;
+            margin-left: 150px;
+        }
+
+        #nameS {
+            margin-top: 15px;
+            margin-left: 100px;
+            padding-bottom: 10px;
+            color: rebeccapurple;
+            font-size: 24px;
+        }
+
+        #itog {
+
+            padding-top: 10px;
+        }
+        .buttons{
+            margin-top: 10px;
         }
 
 
@@ -77,6 +109,18 @@
             output.style.color = textColor;
             output.style.border = borderr;
         }
+        
+        function storage(){
+            let inputYa = parseInt((document.getElementById('numberYa').value));
+            let inputPo = parseInt((document.getElementById('numberPo').value));
+            let inputAp = parseInt((document.getElementById('numberAp').value));
+            let inputBa = parseInt((document.getElementById('numberBa').value));
+
+            let result = (inputAp * 900) + (inputPo * 300) + (inputYa * 35) + (inputBa * 150);
+            let output = document.getElementById('itog');
+            output.innerHTML = 'Итоговая сумма: ' + result + ' руб.';
+
+        }
 
     </script>
 </head>
@@ -94,7 +138,7 @@
         <div class="message" onclick="ShowDel()">Найти частное чисел</div>
         <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
 
-        <div>
+        <div class="buttons">
             <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', '3px dashed')">
             <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'white', 'thick double #32a1ce')">
             <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'white', 'black', '3px solid')">
@@ -102,6 +146,17 @@
         </div>
 
         <div id="output"></div>
+
+        <div class="storage">
+            <div id="nameS">Корзина товаров</div>
+            <label>Яблоки(35р/штука)<input type="number" value="0" id="numberYa"></label><br>
+            <label>Помела(300р/штука)<input type="number" value="0" id="numberPo"></label><br>
+            <label>Апельсины(900р/штука)<input type="number" value="0" id="numberAp"></label><br>
+            <label>Бананы(150р/штука)<input type="number" value="0" id="numberBa"></label><br>
+            <input type="button" value="Рассчитать" onclick="storage()" id="Sbb">
+            <div id="itog">Итоговая сумма: </div>
+        </div>
+
     </main>
     <footer onclick='ShowAuthor()'>
         &copy;<i>Ларионов Даниил, ФБИ-12, 2 курс, 2023</i>
