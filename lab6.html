@@ -27,6 +27,20 @@
             text-align: left;
         }
 
+        .color{
+            border: 1px solid;
+            border-color: black;
+            border-radius: 3px 3px;
+            margin: auto;
+            padding: 10px; 
+            width: 20%;
+            margin-top: 20px;
+            background-color: yellow;
+            color: black;
+            text-align: center;
+        }
+
+
     </style>
     <script>
 
@@ -87,7 +101,34 @@
                 helpButton.innerHTML = 'Показать правила игры';
             }
         }
+        function changeColor(div) {
 
+            if (div.style.backgroundColor == 'yellow') {
+                div.style.backgroundColor = 'red';
+                document.getElementById('color-name').innerHTML = 'красный';
+                div.style.color = 'black';
+            }
+            else if (div.style.backgroundColor == 'red') {
+                div.style.backgroundColor = 'black';
+                document.getElementById('color-name').innerHTML = 'черный';
+                div.style.color = 'white';
+            }
+            else if (div.style.backgroundColor == 'black') {
+                div.style.backgroundColor = 'pink';
+                document.getElementById('color-name').innerHTML = 'розовый';
+                div.style.color = 'black';
+            }
+            else if (div.style.backgroundColor == 'pink') {
+                div.style.backgroundColor = 'blue';
+                document.getElementById('color-name').innerHTML = 'синий';
+                div.style.color = 'white';
+            }
+            else {
+                div.style.backgroundColor = 'yellow';
+                document.getElementById('color-name').innerHTML = 'желтый';
+                div.style.color = 'black';
+            }
+        }
     </script>
 </head>
 <body>
@@ -135,6 +176,11 @@
                 <li>Если число игрока больше задуманного, выводится сообщение "Вы ввели большое число".</li>
                 <li>Игра заканчивается, когда игрок угадывает задуманное число, и выводится сообщение с числом попыток.</li>
             </ol>
+        </div>
+
+        <div class="color" ondblclick="changeColor(this)">
+            Цвет: <span id="color-name">желтый</span><br>
+            Сделайте двойной клик, чтобы изменить
         </div>
 
     </main>
