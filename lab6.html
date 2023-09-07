@@ -56,6 +56,25 @@
             position: relative;
         }
 
+        .increase {
+            width: 150px;
+            height: 50px;
+            background-color: #f5f5f5;
+            color: #333;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            left: 10px;
+            transition: all 0.5s ease;
+            position: relative;
+            margin-top: 20px;
+        }
+        .increase:hover{
+            cursor: grab;
+        }
+
 
     </style>
     <script>
@@ -162,6 +181,16 @@
             }
         }
 
+        function addSize(increase) {
+            let currentWidth = parseInt(getComputedStyle(increase).width);
+            if (currentWidth < 1000) {
+                increase.style.width = currentWidth + 50 + 'px';
+                console.log(currentWidth)
+            } else {
+                increase.style.width = '100px';
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -218,6 +247,7 @@
         <div class="clickmove" id="moving" onclick="move(this)">
             <span>Щелкни меня</span>
         </div>
+        <div class="increase" onclick="addSize(this)">Расширь</div>
 
     </main>
     <footer>
