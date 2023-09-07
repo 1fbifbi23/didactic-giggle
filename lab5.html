@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Даниил Ларионов. Лабораторная 5</title>
+    <link rel="stylesheet" href="main.css">
     <style>
         .message{
             cursor: pointer;
@@ -26,18 +27,22 @@
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' = ' + result)
         }
+        function ShowAuthor() {
+            let author = 'Автор страницы:\nЛарионов Даниил Сергеевич\nДевиз: отсутствует'
+            alert (author)
+        }
 
     </script>
 </head>
 <body>
-    <header>
+    <header onclick='ShowAuthor()'>
         НГТУ, ФБИ-12, Лабораторная 5
     </header>
     <main>
         <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
     </main>
-    <footer>
+    <footer onclick='ShowAuthor()'>
         &copy;<i>Ларионов Даниил, ФБИ-12, 2 курс, 2023</i>
     </footer>
     
