@@ -75,6 +75,21 @@
             cursor: grab;
         }
 
+        .clothes{
+            margin-top: 20px;
+            border: 1px solid;
+            border-radius: 3px 3px;
+            color: black;
+            border-color: black;
+            width: 25%;
+        }
+
+        #wear {
+            width: 200px;
+            height: auto; 
+            margin-top: 10px; 
+        }
+
 
     </style>
     <script>
@@ -191,6 +206,43 @@
             }
         }
 
+        function filter(clothes) {
+            let color = document.getElementById('wear-color').value;
+            let type = document.getElementById('wear-type').value;
+            let wear = document.getElementById('wear');
+            if (color == 'Красный' && type == 'Футболка') {
+                wear.src = 'https://pics.clipartpng.com/Red_T_Shirt_PNG_Clip_Art-3105.png';
+                console.log('da');
+            } 
+            else if (color == 'Белый' && type == 'Футболка') {
+                wear.src = 'https://img.alicdn.com/imgextra/i2/3045152654/TB2OT0.kHuWBuNjSszgXXb8jVXa_!!3045152654.png';
+            } 
+            else if (color == 'Черный' && type == 'Футболка') {
+                wear.src = 'https://cdn1.ozone.ru/s3/multimedia-i/6577050570.jpg';
+            } 
+            else if (color == 'Красный' && type == 'Поло') {
+                wear.src = 'https://krot.info/uploads/posts/2021-11/1635998944_6-krot-info-p-folksvagen-polo-sedan-krasnii-mashini-kras-6.jpg';
+            } 
+            else if (color == 'Белый' && type == 'Поло') {
+                wear.src = 'https://cdn.modoza.com/media/shop/b9/ca/1b93/7e4a/muzhskoe-polo-armani-exchange-8nzf70z8m9z-1100-white-b9ca1b937e4a2ff466b3eebc4d96c355.jpg';
+            } 
+            else if (color == 'Черный' && type == 'Поло') {
+                wear.src = 'https://vebstore.ru/wa-data/public/shop/products/49/01/149/images/674/674.750x0.png';
+            } 
+            else if (color == 'Красный' && type == 'Майка') {
+                wear.src = 'https://www.grossiste-tee-shirts.com/60988-thickbox_default/debardeur-exact-move.jpg';
+            }
+            else if (color == 'Белый' && type == 'Майка') {
+                wear.src = 'https://basketballer.ru/wp-content/uploads/2016/05/Jordan_589114-100.jpg';
+            } 
+            else if (color == 'Черный' && type == 'Майка') {
+                wear.src = 'https://cdn2.static1-sima-land.com/items/732028/0/700-nw.jpg';
+            } 
+            else {
+                wear.src = '';
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -248,6 +300,24 @@
             <span>Щелкни меня</span>
         </div>
         <div class="increase" onclick="addSize(this)">Расширь</div>
+
+        <div class = 'clothes'>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Красный</option>
+                <option>Белый</option>
+                <option>Черный</option>
+            </select><br>
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Поло</option>
+                <option>Майка</option>
+            </select><br>
+
+            <button onclick="filter(this)">OK</button><br>
+            <img id="wear">
+        </div>
 
     </main>
     <footer>
