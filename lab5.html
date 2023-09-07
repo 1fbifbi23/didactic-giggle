@@ -4,13 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Даниил Ларионов. Лабораторная 5</title>
+    <style>
+        .message{
+            cursor: pointer;
+            display: inline-block;
+            border-radius: 3px 3px;
+            border: solid;
+            border-color: black;
+            background-color: darkorange;
+            color: black;
+        }
+
+
+    </style>
+
+    <script>
+
+        function ShowSum() {
+            let a = 5154;
+            let b = 7891;
+            let result = a + b;
+            alert('Сумма ' + a + ' и ' + b + ' = ' + result)
+        }
+
+    </script>
 </head>
 <body>
     <header>
         НГТУ, ФБИ-12, Лабораторная 5
     </header>
     <main>
-        
+        <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
+        <div class="message">Узнать, кто автор страницы</div>
     </main>
     <footer>
         &copy;<i>Ларионов Даниил, ФБИ-12, 2 курс, 2023</i>
